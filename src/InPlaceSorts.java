@@ -10,7 +10,7 @@ public class InPlaceSorts {
 
     public static int[] bubbleSort(int[] arr)
     {
-        boolean sorted= SortingUtil.sorted(arr);
+        boolean sorted= InPlaceSorts.sorted(arr);
         int lastSwap = arr.length;
         int lastSwapTemp=0;
         while(sorted==false)
@@ -19,13 +19,13 @@ public class InPlaceSorts {
             {
                 if(i+1!=arr.length) {
                     if (arr[i] > arr[i + 1]) {
-                        SortingUtil.swap(arr, i, i + 1);
+                        InPlaceSorts.swap(arr, i, i + 1);
                     }
                 }
                 lastSwapTemp=i;
             }
             lastSwap=lastSwapTemp;
-            sorted=SortingUtil.sorted(arr);
+            sorted=InPlaceSorts.sorted(arr);
 
         }
         return arr;
