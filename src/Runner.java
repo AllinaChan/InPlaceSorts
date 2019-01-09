@@ -18,5 +18,3 @@ public class Runner {
             System.out.println("Time take: "+ time);
         }
     }
-
-}

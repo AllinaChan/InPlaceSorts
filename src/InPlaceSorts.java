@@ -1,21 +1,21 @@
 public class InPlaceSorts {
 
-    public static int[] swap(int[] arr, int i, int j)
+    public static String[] swap(String[] arr, int i, int j)
     {
-        int temp=arr[i];
+        String temp=arr[i];
         arr[i]=arr[j];
         arr[j]=temp;
         return arr;
     }
 
-    public static int[] bubbleSort(int[] arr)
+    public static String[] bubbleSort(String[] arr)
     {
         boolean sorted= InPlaceSorts.sorted(arr);
-        int lastSwap = arr.length;
-        int lastSwapTemp=0;
+        String lastSwap = arr.length;
+        String lastSwapTemp=0;
         while(sorted==false)
         {
-            for(int i=0; i<lastSwap; i++)
+            for(String i=0; i<lastSwap; i++)
             {
                 if(i+1!=arr.length) {
                     if (arr[i] > arr[i + 1]) {
@@ -27,17 +27,18 @@ public class InPlaceSorts {
             lastSwap=lastSwapTemp;
             sorted=InPlaceSorts.sorted(arr);
 
+
         }
         return arr;
     }
 
-    public static int[] selectionSort(int[] arr)
+    public static String[] selectionSort(String[] arr)
     {
         int currentPos=0;
-        for(int j=0; j<arr.length; j++)
+        for(String j=0; j<arr.length; j++)
         {
-            int min=0;
-            for(int i= currentPos; i <arr.length; i++)
+            String min=0;
+            for(String i= currentPos; i <arr.length; i++)
             {
                 if(arr[i]<arr[min])
                 {
@@ -50,7 +51,7 @@ public class InPlaceSorts {
         return arr;
     }
 
-    public static boolean sorted(int[] arr)
+    public static boolean sorted(String[] arr)
     {
         boolean result=true;
         for(int i =0; i <arr.length; i++)
@@ -65,36 +66,39 @@ public class InPlaceSorts {
         return result;
     }
 
-    public static boolean checkSum(int[] before, int [] after)
+    /*public static boolean checkSum(String[] before, String [] after)
     {
-        int sum=0;
-        int sum2=0;
-        for(int num: before)
+        String sum=0;
+        String sum2=0;
+        for(String num: before)
         {
             sum+=num;
         }
-        for(int num: after)
+        for(String num: after)
         {
             sum2+=num;
         }
         return sum==sum2;
     }
+    */
 
-    public static int[] randIntArr(int count)
+    /*public static String[] randStringArr(String count)
     {
-        int[] arr = new int[count];
+        String[] arr = new String[count];
         for(int i=0; i<arr.length; i++)
         {
-            arr[i]= (int)(Math.random()*10000);
+            arr[i]= (String)(Math.random()*10000);
         }
         return arr;
     }
+*/
 
-    public static String printArr(int[] arr)
+
+    public static String printArr(String[] arr)
     {
         String result="";
 
-        for(int num: arr)
+        for(String num: arr)
         {
             result= result+ " " + num;
         }
