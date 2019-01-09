@@ -35,12 +35,12 @@ public class InPlaceSorts {
     public static String[] selectionSort(String[] arr)
     {
         int currentPos=0;
-        for(String j=0; j<arr.length; j++)
+        for(int j=0; j<arr.length; j++)
         {
-            String min=0;
-            for(String i= currentPos; i <arr.length; i++)
+            int min=0;
+            for(int i= currentPos; i <arr.length; i++)
             {
-                if(arr[i]<arr[min])
+                if(arr[i].compareTo(arr[min])<0)
                 {
                     min=i;
                 }
@@ -82,7 +82,7 @@ public class InPlaceSorts {
     }
     */
 
-    /*public static String[] randStringArr(String count)
+    /*public static int[] randIntArr(String count)
     {
         String[] arr = new String[count];
         for(int i=0; i<arr.length; i++)
@@ -106,3 +106,4 @@ public class InPlaceSorts {
     }
 
 }
+
