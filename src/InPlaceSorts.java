@@ -8,14 +8,34 @@ public class InPlaceSorts {
         return arr;
     }
 
+    public String[] randomStringArr(int num, int length)
+    {
+        String[] arr = new String[num];
+        while(num>0)
+        {
+            int i =0;
+            String s="";
+            while(i<length)
+            {
+                char c= (char)((Math.random()*26)+97);
+                s=s+c;
+                i++;
+            }
+            num--;
+            arr[num]=s;
+        }
+        return arr;
+    }
+
     public static String[] bubbleSort(String[] arr)
     {
         boolean sorted= InPlaceSorts.sorted(arr);
-        String lastSwap = arr.length;
-        String lastSwapTemp=0;
+        int lastSwap = arr.length;
+        int lastSwapTemp=0;
+
         while(sorted==false)
         {
-            for(String i=0; i<lastSwap; i++)
+            for(int i=0; i<lastSwap; i++)
             {
                 if(i+1!=arr.length) {
                     if (arr[i] > arr[i + 1]) {
@@ -26,8 +46,6 @@ public class InPlaceSorts {
             }
             lastSwap=lastSwapTemp;
             sorted=InPlaceSorts.sorted(arr);
-
-
         }
         return arr;
     }
@@ -57,7 +75,7 @@ public class InPlaceSorts {
         for(int i =0; i <arr.length; i++)
         {
             if(i+1!=arr.length) {
-                if (arr[i] > arr[i + 1]) {
+                if (arr[i].compareTo(arr[i + 1])<0) {
                     result = false;
                     break;
                 }
@@ -82,7 +100,7 @@ public class InPlaceSorts {
     }
     */
 
-    /*public static int[] randIntArr(String count)
+    /*public static String[] randStringArr(String count)
     {
         String[] arr = new String[count];
         for(int i=0; i<arr.length; i++)
@@ -106,4 +124,3 @@ public class InPlaceSorts {
     }
 
 }
-
