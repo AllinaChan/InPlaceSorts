@@ -8,6 +8,21 @@ public class InPlaceSorts {
         return arr;
     }
 
+    public static double[] swap(double [] arr, int i, int j){
+        double temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+        return arr;
+
+    }
+
+    public static int[] swap(int[] arr, int i, int j){
+        int temp=arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+        return arr;
+    }
+
     public static String[] randomStringArr(int num, int length)
     {
         String[] arr = new String[num];
@@ -50,21 +65,22 @@ public class InPlaceSorts {
         return arr;
     }
 
-    public static String[] selectionSort(String[] arr)
+    public static double[] selectionSort(double[] arr)
     {
-        int currentPos=0;
-        for(int j=0; j<arr.length; j++)
+        int minPos=0;
+        for(int curPos=0; curPos<arr.length-1; curPos++)
         {
-            int min=0;
-            for(int i= currentPos; i <arr.length; i++)
+            double minNum=arr[curPos];
+            minPos=curPos;
+            for(int i= curPos+1; i<arr.length; i++)
             {
-                if(arr[i].compareTo(arr[min])<0)
+                if(minNum>arr[i])
                 {
-                    min=i;
+                    arr[i]=minNum;
+                    minPos=i;
                 }
             }
-            swap(arr, currentPos, min);
-            currentPos++;
+            swap(arr, curPos, minPos);
         }
         return arr;
     }
