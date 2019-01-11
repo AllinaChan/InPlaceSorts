@@ -69,6 +69,25 @@ public class InPlaceSorts {
         return arr;
     }
 
+    public static void insertionSort(int[] arr)
+    {
+        int currentPos=1;
+
+        for(int i=1; i<arr.length; i++)
+        {
+            for(int j=i; j>0; j--)
+            {
+                if () {
+                    InPlaceSorts.swap(arr, j-1,j );
+                }else{
+                    break;
+                }
+            }
+        }
+    }
+
+
+
     public static boolean sorted(String[] arr)
     {
         boolean result=true;
@@ -100,16 +119,26 @@ public class InPlaceSorts {
     }
     */
 
-    /*public static String[] randStringArr(String count)
+    public static int[] randIntArr(int count)
     {
-        String[] arr = new String[count];
+        int[] arr = new int[count];
         for(int i=0; i<arr.length; i++)
         {
-            arr[i]= (String)(Math.random()*10000);
+            arr[i]= (int)(Math.random()*10000);
         }
         return arr;
     }
-*/
+
+    public static double[] randDoubleArr(int count)
+    {
+        double[] arr = new double[count];
+        for(int i=0; i<arr.length; i++)
+        {
+            arr[i]=(Math.random()*10000);
+        }
+        return arr;
+    }
+
 
 
     public static String printArr(String[] arr)

@@ -8,9 +8,9 @@ public class Runner {
             System.out.println(InPlaceSorts.printArr(arr));
 
             long time= System.nanoTime();
-            InPlaceSorts.bubbleSort(arr);
+           //InPlaceSorts.bubbleSort(arr);
             //InPlaceSorts.selectionSort(arr);
-
+            InPlaceSorts.insertionSort(arr);
 
             System.out.println("After: ");
             System.out.println(InPlaceSorts.printArr(arr));
