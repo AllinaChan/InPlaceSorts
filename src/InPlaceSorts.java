@@ -8,6 +8,28 @@ public class InPlaceSorts {
         return arr;
     }
 
+    public static int binarySearch(int[] arr, int target)
+    {
+        int min=0;
+        int max=0;
+        while(min<= max)
+        {
+            int middle= (min+max)/2;
+            if(target> arr[middle])
+            {
+                min=middle+1;
+
+             } else if(target< arr[middle])
+               {
+                   max=middle-1;
+               }else
+            {
+                return middle;
+            }
+        }
+        return -1;
+    }
+
     public static double[] swap(double [] arr, int i, int j){
         double temp=arr[i];
         arr[i]=arr[j];
