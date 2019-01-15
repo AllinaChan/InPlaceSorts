@@ -178,7 +178,7 @@ public class InPlaceSorts {
 
 
 
-    public static String printArr(String[] arr)
+    public static String printStringArr(String[] arr)
     {
         String result="";
 
@@ -188,5 +188,27 @@ public class InPlaceSorts {
         }
         return result;
     }
+    public static String printDoubleArr(double[] arr)
+    {
+        String result="";
+
+        for(double num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
+
+    public static String printIntArr(int[] arr)
+    {
+        String result="";
+
+        for(int num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
+
 
 }

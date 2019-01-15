@@ -5,15 +5,15 @@ public class Runner {
             int[] intArr= InPlaceSorts.randIntArr(5);
             double[] doubleArr= InPlaceSorts.randDoubleArr(5);
 
+
+            System.out.println("----BUBBLE SORT--strings--");
             System.out.println("Before: ");
-            System.out.println(InPlaceSorts.printArr(arr));
+            System.out.println(InPlaceSorts.printStringArr(stringArr));
 
             long time= System.nanoTime();
-           //InPlaceSorts.bubbleSort(arr);
-            //InPlaceSorts.selectionSort(arr);
-            InPlaceSorts.insertionSort(intArr);
+            InPlaceSorts.bubbleSort(stringArr);
             System.out.println("After: ");
-            System.out.println(InPlaceSorts.printArr(arr));
+            System.out.println(InPlaceSorts.printStringArr(stringArr));
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
         }
