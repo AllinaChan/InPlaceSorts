@@ -19,9 +19,15 @@ public class Runner {
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
 
-
-
-
+            System.out.println("------Selection Sort---doubles--");
+            System.out.println("Before: ");
+            System.out.println(InPlaceSorts.printDoubleArr(doubleArr));
+            time= System.nanoTime();
+            InPlaceSorts.selectionSort(doubleArr);
+            System.out.println("After: ");
+            System.out.println(InPlaceSorts.printDoubleArr(doubleArr));
+            time=System.nanoTime()-time;
+            System.out.println("Time take: "+ time);
 
 
             System.out.println("----Insertion Sort--ints--");
@@ -36,5 +42,7 @@ public class Runner {
 
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
+
+
         }
     }

@@ -89,7 +89,7 @@ public class InPlaceSorts {
 
     public static double[] selectionSort(double[] arr)
     {
-        int minPos=0;
+        int minPos;
         for(int curPos=0; curPos<arr.length-1; curPos++)
         {
             double minNum=arr[curPos];
@@ -98,7 +98,7 @@ public class InPlaceSorts {
             {
                 if(minNum>arr[i])
                 {
-                    arr[i]=minNum;
+                    minNum=arr[i];
                     minPos=i;
                 }
             }
