@@ -29,7 +29,7 @@ public class Runner {
             System.out.println(InPlaceSorts.printIntArr(intArr));
 
             time= System.nanoTime();
-            InPlaceSorts.bubbleSort(stringArr);
+            InPlaceSorts.insertionSort(intArr);
 
             System.out.println("After: ");
             System.out.println(InPlaceSorts.printIntArr(intArr));

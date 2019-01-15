@@ -1,6 +1,6 @@
 public class InPlaceSorts {
 
-    public static String[] swap(String[] arr, int i, int j)
+    public static String[] swap(String[]arr, int i, int j)
     {
         String temp=arr[i];
         arr[i]=arr[j];
@@ -30,7 +30,7 @@ public class InPlaceSorts {
         return -1;
     }
 
-    public static double[] swap(double [] arr, int i, int j){
+    public static double[] swap(double[] arr, int i, int j){
         double temp=arr[i];
         arr[i]=arr[j];
         arr[j]=temp;
@@ -38,7 +38,7 @@ public class InPlaceSorts {
 
     }
 
-    public static int[] swap(int[] arr, int i, int j){
+    public static int[] swap(int[]arr, int i, int j){
         int temp=arr[i];
         arr[i]=arr[j];
         arr[j]=temp;
@@ -114,14 +114,15 @@ public class InPlaceSorts {
         {
             for(int j=i; j>0; j--)
             {
-                if (arr[j]>arr[j-1]) {
+                if (arr[j]<arr[j-1]) {
                     InPlaceSorts.swap(arr, j,j-1 );
-                }else{
+                }else if(arr[j]>arr[j-1]){
                     break;
                 }
             }
         }
     }
+
 
 
 
