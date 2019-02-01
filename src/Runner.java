@@ -45,5 +45,21 @@ public class Runner {
             System.out.println("Time take: "+ time);
 
 
+
+            System.out.println("----Merge Sort--ints--");
+            System.out.println("Before: ");
+            System.out.println(InPlaceSorts.printIntArr(intArr));
+
+            time= System.nanoTime();
+            InPlaceSorts.mergeSort(intArr);
+
+            System.out.println("After: ");
+            System.out.println(InPlaceSorts.printIntArr(intArr));
+
+            time=System.nanoTime()-time;
+            System.out.println("Time take: "+ time);
+
+
+
         }
     }
