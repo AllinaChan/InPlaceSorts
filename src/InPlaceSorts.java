@@ -216,6 +216,7 @@ public class InPlaceSorts {
         int i = from;
         int j = mid + 1;
         int k = from;
+
         while (i <= mid && j <= to)
         {
             if (elements[i] < elements[j])
