@@ -211,5 +211,29 @@ public class InPlaceSorts {
         return result;
     }
 
+    public static int[] merge(int[]left,int[] right){
+        int[] newMerge=new int[left.length+right.length];
+        int leftIndex=0;
+        int rightIndex=0;
+        int count=0;
+        while(leftIndex<left.length && rightIndex<right.length){
+            while(left[leftIndex]<right[rightIndex]){
+                newMerge[count]=left[leftIndex];
+                count++;
+                leftIndex++;
+                rightIndex++;
+            }
+            while(right[rightIndex]<left[leftIndex]){
+                newMerge[count]=right[rightIndex];
+                count++;
+                leftIndex++;
+                rightIndex++;
+            }
+        }
+        return newMerge;
+
+    }
+
+
 
 }
