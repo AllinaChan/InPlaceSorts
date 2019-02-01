@@ -3,7 +3,8 @@ public class Runner {
         public static void main(String[] args)
         {
             String[] stringArr= InPlaceSorts.randomStringArr(5, 5);
-            int[] intArr= InPlaceSorts.randIntArr(5);
+            int[] intArr= InPlaceSorts.randIntArr(10000);
+            int[] mergeIntArr= InPlaceSorts.randIntArr(10000);
             double[] doubleArr= InPlaceSorts.randDoubleArr(5);
 
 
@@ -48,13 +49,13 @@ public class Runner {
 
             System.out.println("----Merge Sort--ints--");
             System.out.println("Before: ");
-            System.out.println(InPlaceSorts.printIntArr(intArr));
+            System.out.println(InPlaceSorts.printIntArr(mergeIntArr));
 
             time= System.nanoTime();
-            InPlaceSorts.mergeSort(intArr);
+            InPlaceSorts.mergeSort(mergeIntArr);
 
             System.out.println("After: ");
-            System.out.println(InPlaceSorts.printIntArr(intArr));
+            System.out.println(InPlaceSorts.printIntArr(mergeIntArr));
 
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
