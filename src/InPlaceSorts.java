@@ -211,28 +211,44 @@ public class InPlaceSorts {
         return result;
     }
 
-    public static int[] merge(int[]left,int[] right){
-        int[] newMerge=new int[left.length+right.length];
-        int leftIndex=0;
-        int rightIndex=0;
-        int count=0;
-        while(leftIndex<left.length && rightIndex<right.length){
-            while(left[leftIndex]<right[rightIndex]){
-                newMerge[count]=left[leftIndex];
-                count++;
-                leftIndex++;
-                rightIndex++;
+    private static void merge(int[] elements, int from, int mid, int to, int[] temp)
+    {
+        int i = from;
+        int j = mid + 1;
+        int k = from;
+        while (i <= mid && j <= to)
+        {
+            if (elements[i] < elements[j])
+            {
+                temp[k] = elements[i];
+                i++;
             }
-            while(right[rightIndex]<left[leftIndex]){
-                newMerge[count]=right[rightIndex];
-                count++;
-                leftIndex++;
-                rightIndex++;
+            else
+            {
+                temp[k] = elements[j];
+                j++;
             }
+            k++;
         }
-        return newMerge;
 
+        while (i <= mid)
+        {
+            temp[k] = elements[i];
+            i++;
+            k++;
+        }
+        while (j <= to)
+        {
+            temp[k] = elements[j];
+            j++;
+            k++;
+        }
+        for (k = from; k <= to; k++)
+        {
+            elements[k] = temp[k];
+        }
     }
+
     public void mergeSort(int[] arr){
         int n=arr.length;
         int[] temp=new int[n];
