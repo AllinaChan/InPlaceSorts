@@ -4,7 +4,8 @@ public class Runner {
         {
             String[] stringArr= InPlaceSorts.randomStringArr(5, 5);
             int[] intArr= InPlaceSorts.randIntArr(10000);
-            int[] mergeIntArr= InPlaceSorts.randIntArr(10000);
+            int[] mergeIntArr= InPlaceSorts.randIntArr(50000);
+            int[] quickIntArr= InPlaceSorts.randIntArr(50000);
             double[] doubleArr= InPlaceSorts.randDoubleArr(5);
 
 
@@ -56,6 +57,20 @@ public class Runner {
 
             System.out.println("After: ");
             System.out.println(InPlaceSorts.printIntArr(mergeIntArr));
+
+            time=System.nanoTime()-time;
+            System.out.println("Time take: "+ time);
+
+
+            System.out.println("----Quick Sort--ints--");
+            System.out.println("Before: ");
+            System.out.println(InPlaceSorts.printIntArr(quickIntArr));
+
+            time= System.nanoTime();
+            InPlaceSorts.quickSort(quickIntArr,0, quickIntArr.length-1);
+
+            System.out.println("After: ");
+            System.out.println(InPlaceSorts.printIntArr(quickIntArr));
 
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
