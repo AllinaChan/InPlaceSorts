@@ -93,6 +93,7 @@ public class InPlaceSorts {
 
     public static void quickSort(int arr[], int low, int high)
     {
+
         if (low < high)
         {
             /* pi is partitioning index, arr[pi] is
