@@ -7,6 +7,7 @@ public class Runner {
             int[] mergeIntArr= InPlaceSorts.randIntArr(50000);
             int[] quickIntArr= InPlaceSorts.randIntArr(50000);
             double[] doubleArr= InPlaceSorts.randDoubleArr(5);
+            int[] testArr= InPlaceSorts.randMostSortIntArray(50000);
 
 
             System.out.println("----BUBBLE SORT--strings--");
@@ -71,6 +72,19 @@ public class Runner {
 
             System.out.println("After: ");
             System.out.println(InPlaceSorts.printIntArr(quickIntArr));
+
+            time=System.nanoTime()-time;
+            System.out.println("Time take: "+ time);
+
+            System.out.println("----MostlySortedTestInserstion--ints--");
+            System.out.println("Before: ");
+            System.out.println(InPlaceSorts.printIntArr(testArr));
+
+            time= System.nanoTime();
+            InPlaceSorts.insertionSort(testArr);
+
+            System.out.println("After: ");
+            System.out.println(InPlaceSorts.printIntArr(testArr));
 
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);

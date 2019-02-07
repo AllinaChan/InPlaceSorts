@@ -212,6 +212,21 @@ public class InPlaceSorts {
         return arr;
     }
 
+    public static int[] randMostSortIntArray(int count){
+        int[] arr=new int[count];
+        int i=0;
+        while(i<arr.length){
+            if(i<7500){
+                arr[i]=i;
+                i++;
+            } else{
+                arr[i]=(int)(Math.random()*10000);
+                i++;
+            }
+        }
+        return arr;
+    }
+
     public static double[] randDoubleArr(int count)
     {
         double[] arr = new double[count];
