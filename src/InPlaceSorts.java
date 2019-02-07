@@ -238,7 +238,7 @@ public class InPlaceSorts {
         return arr;
     }
 
-    public static double[] selectionSort(double[] arr)
+    public static int[] selectionSort(int[] arr)
     {
         int minPos;
         for(int curPos=0; curPos<arr.length-1; curPos++)
@@ -332,6 +332,20 @@ public class InPlaceSorts {
         }
         return arr;
     }
+    public static double[] randMostSortDoubleArray(int count ){
+        double[] arr=new double[count];
+        int i=0;
+        while(i<arr.length){
+            if(i<7500){
+                arr[i]=i;
+                i++;
+            } else{
+                arr[i]=(double)(Math.random()*10000);
+                i++;
+            }
+        }
+        return arr;
+    }
 
     public static double[] randDoubleArr(int count)
     {
@@ -371,6 +385,16 @@ public class InPlaceSorts {
         String result="";
 
         for(int num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
+
+    public static String printMultiArr(int[][] arr){
+        String result="";
+
+        for(int[] num: arr)
         {
             result= result+ " " + num;
         }
@@ -429,6 +453,16 @@ public class InPlaceSorts {
             mergeSortHelper(arr,mid+1,right,temp);
             merge(arr,left,mid,right,temp);
         }
+    }
+
+    public static int[][] randMultiArray(int count){
+        int[][] arr= new int[count][count];
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[i].length;j++){
+                arr[i][j]=(int)(Math.random()*10000);
+            }
+        }
+        return arr;
     }
 
 

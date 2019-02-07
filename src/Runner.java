@@ -9,14 +9,17 @@ public class Runner {
             int[] quickIntArr2= quickIntArr.clone();
             int[] quickIntArr3= quickIntArr.clone();
             double[] doubleArr= InPlaceSorts.randDoubleArr(5);
-            int[] testArr= InPlaceSorts.randMostSortIntArray(50000);
+            int[] testArr= InPlaceSorts.randMostSortIntArray(100000);
+            int[] testArr2=InPlaceSorts.randMostSortIntArray(100000);
+            int[][] multiarr1=InPlaceSorts.randMultiArray(100000);
 
-
+/*
             System.out.println("----BUBBLE SORT--strings--");
             System.out.println("Before: ");
             System.out.println(InPlaceSorts.printStringArr(stringArr));
 
             long time= System.nanoTime();
+
             InPlaceSorts.bubbleSort(stringArr);
 
             System.out.println("After: ");
@@ -70,6 +73,7 @@ public class Runner {
             System.out.println("Before: ");
             System.out.println(InPlaceSorts.printIntArr(quickIntArr));
 
+            long time= System.nanoTime();
             time= System.nanoTime();
             InPlaceSorts.quickSort(quickIntArr,0, quickIntArr.length-1);
 
@@ -120,6 +124,19 @@ public class Runner {
 
             System.out.println("After: ");
             System.out.println(InPlaceSorts.printIntArr(testArr));
+
+            time=System.nanoTime()-time;
+            System.out.println("Time take: "+ time);
+
+            System.out.println("----MostlySortedTestSelection--ints--");
+            System.out.println("Before: ");
+            System.out.println(InPlaceSorts.printIntArr(testArr2));
+
+            time= System.nanoTime();
+            InPlaceSorts.selectionSort(testArr2);
+
+            System.out.println("After: ");
+            System.out.println(InPlaceSorts.printIntArr(testArr2));
 
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
