@@ -6,6 +6,8 @@ public class Runner {
             int[] intArr= InPlaceSorts.randIntArr(10000);
             int[] mergeIntArr= InPlaceSorts.randIntArr(50000);
             int[] quickIntArr= InPlaceSorts.randIntArr(50000);
+            int[] quickIntArr2= quickIntArr.clone();
+            int[] quickIntArr3= quickIntArr.clone();
             double[] doubleArr= InPlaceSorts.randDoubleArr(5);
             int[] testArr= InPlaceSorts.randMostSortIntArray(50000);
 
@@ -23,6 +25,7 @@ public class Runner {
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
 
+            /*
             System.out.println("------Selection Sort---doubles--");
             System.out.println("Before: ");
             System.out.println(InPlaceSorts.printDoubleArr(doubleArr));
@@ -62,7 +65,7 @@ public class Runner {
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
 
-
+*/
             System.out.println("----Quick Sort--ints--");
             System.out.println("Before: ");
             System.out.println(InPlaceSorts.printIntArr(quickIntArr));
@@ -76,6 +79,38 @@ public class Runner {
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
 
+
+            System.out.println("----Quick Sort2--ints--");
+            System.out.println("Before: ");
+            System.out.println(InPlaceSorts.printIntArr(quickIntArr2));
+
+            time= System.nanoTime();
+            InPlaceSorts.quickSort2(quickIntArr2,0, quickIntArr2.length-1);
+
+            System.out.println("After: ");
+            System.out.println(InPlaceSorts.printIntArr(quickIntArr2));
+
+            time=System.nanoTime()-time;
+            System.out.println("Time take: "+ time);
+
+
+
+            System.out.println("----Quick Sort3--ints--");
+            System.out.println("Before: ");
+            System.out.println(InPlaceSorts.printIntArr(quickIntArr3));
+
+            time= System.nanoTime();
+            InPlaceSorts.quickSort3(quickIntArr3,0, quickIntArr3.length-1);
+
+            System.out.println("After: ");
+            System.out.println(InPlaceSorts.printIntArr(quickIntArr3));
+
+            time=System.nanoTime()-time;
+            System.out.println("Time take: "+ time);
+
+
+
+/*
             System.out.println("----MostlySortedTestInserstion--ints--");
             System.out.println("Before: ");
             System.out.println(InPlaceSorts.printIntArr(testArr));
@@ -90,6 +125,6 @@ public class Runner {
             System.out.println("Time take: "+ time);
 
 
-
+*/
         }
     }
