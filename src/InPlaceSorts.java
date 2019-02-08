@@ -395,6 +395,16 @@ public class InPlaceSorts {
         }
         return result;
     }
+    public static String printInt2Arr(int[][] arr)
+    {
+        String result="";
+
+        for(int[] num: arr)
+        {
+            result= result+ " " + num;
+        }
+        return result;
+    }
 
     public static String printMultiArr(int[][] arr){
         String result="";
@@ -460,15 +470,24 @@ public class InPlaceSorts {
         }
     }
 
-    public static int[][] randMultiArray(int count){
-        int[][] arr= new int[count][count];
+    public static int[][] randMultiArray(int row, int column){
+        int[][] arr= new int[row][column];
         for(int i=0;i<arr.length;i++){
-            for(int j=0;j<arr[i].length;j++){
+            for(int j=0;j< arr[i].length;j++){
                 arr[i][j]=(int)(Math.random()*10000);
             }
         }
         return arr;
     }
+
+    public static int FindMedian(int[] arr){
+        if(arr.length%2==0){
+            return (arr[arr.length/2]+arr[(arr.length/2)+1])/2;
+        } else {
+            return arr[arr.length/2];
+        }
+    }
+
 
 
 
