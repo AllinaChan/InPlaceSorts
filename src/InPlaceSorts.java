@@ -159,6 +159,7 @@ public class InPlaceSorts {
 
     public static int partition3(int[] arr, int low, int high)
     {
+
         int endNum=arr[high];
         int begNum=arr[low];
         int middleIndex= (int)((low+high)/2);
@@ -177,22 +178,26 @@ public class InPlaceSorts {
             swap(arr, middleIndex,high);
         }
 
-        int pivot = arr[high];
+
+        int pivot = arr[low];
 
 
-        int i = (low-1); // index of smaller element
+        int i = (low-1);
         int j= (high+1);
 
         while(true)
         {
-           while(arr[i]<pivot)
-           {
-               i++;
-           }
-           while(arr[j] >pivot)
-           {
+            do {
+            i++;
+            }
+           while(arr[i] < pivot);
+
+
+           do{
                j--;
            }
+           while(arr[j] >pivot);
+
 
            if(i>=j)
            {
