@@ -165,17 +165,17 @@ public class InPlaceSorts {
         int middleIndex= (int)((low+high)/2);
         int middle=arr[middleIndex];
 
-        if(begNum > middle)
+        if(middle < endNum)
         {
-            swap(arr, low, middleIndex);
+            swap(arr, high, middleIndex);
         }
-        if(begNum>endNum)
+        if(begNum < endNum)
         {
             swap(arr, low, high);
         }
-        if(middle > endNum)
+        if(middle<begNum)
         {
-            swap(arr, middleIndex,high);
+            swap(arr, middleIndex,low);
         }
 
 
