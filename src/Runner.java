@@ -7,7 +7,7 @@ public class Runner {
             int[] mergeIntArr= InPlaceSorts.randIntArr(50000);
             int[] quickIntArr= InPlaceSorts.randIntArr(50000);
             int[] quickIntArr2= quickIntArr.clone();
-            int[] quickIntArr3= quickIntArr.clone();
+            int[] quickIntArr3= quickIntArr2.clone();
             double[] doubleArr= InPlaceSorts.randDoubleArr(5);
             int[] testArr= InPlaceSorts.randMostSortIntArray(100000);
             int[] testArr2=InPlaceSorts.randMostSortIntArray(100000);
