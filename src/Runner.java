@@ -11,6 +11,8 @@ public class Runner {
             double[] doubleArr= InPlaceSorts.randDoubleArr(5);
             int[] testArr= InPlaceSorts.randMostSortIntArray(100000);
             int[] testArr2=InPlaceSorts.randMostSortIntArray(100000);
+            int[][] Multi=InPlaceSorts.randMultiArray(1000,1000);
+            int []MakeittoOne=InPlaceSorts.MakeintoOne(Multi);
 
 
 /*
@@ -140,8 +142,17 @@ public class Runner {
 
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
-
-
 */
+            System.out.println("------MultiArrayInsertion---------");
+            System.out.println("Before:");
+            time=System.nanoTime();
+            System.out.println(InPlaceSorts.printMultiArr(Multi));
+            System.out.print(InPlaceSorts.printIntArr(MakeittoOne));
+            InPlaceSorts.insertionSort(MakeittoOne);
+            System.out.println("After:");
+            System.out.println(InPlaceSorts.printIntArr(MakeittoOne));
+            System.out.println(InPlaceSorts.FindMedian(MakeittoOne));
+            time=System.nanoTime()-time;
+            System.out.println("Time take: "+ time);
         }
     }

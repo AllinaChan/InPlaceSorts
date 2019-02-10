@@ -480,15 +480,23 @@ public class InPlaceSorts {
         return arr;
     }
 
+    public static int[] MakeintoOne(int[][] arr){
+        int [] medians= new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            medians[i]=FindMedian(arr[i]);
+        }
+        return medians;
+    }
+
     public static int FindMedian(int[] arr){
-        if(arr.length%2==0){
-            return (arr[arr.length/2]+arr[(arr.length/2)+1])/2;
-        } else {
-            return arr[arr.length/2];
+            if(arr.length%2==0){
+                return (arr[arr.length/2]+arr[(arr.length/2)-1])/2;
+            } else {
+                return arr[arr.length/2];
+            }
         }
     }
 
 
 
 
-}
