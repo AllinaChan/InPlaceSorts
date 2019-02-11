@@ -78,7 +78,23 @@ public class Runner {
             time=System.nanoTime()-time;
             System.out.println("Time take: "+ time);
 
+*//*
+            System.out.println("----TimSort--ints--");
+            System.out.println("Before: ");
+            System.out.println(InPlaceSorts.printIntArr(quickIntArr2));
+
+            time= System.nanoTime();
+            InPlaceSorts.timSort(quickIntArr2,quickIntArr2.length);
+            time=System.nanoTime()-time;
+
+            System.out.println("After: ");
+            System.out.println(InPlaceSorts.printIntArr(quickIntArr2));
+
+
+            System.out.println("Time take: "+ time);
+
 */
+
 
 
             System.out.println("----Quick Sort3--ints--");

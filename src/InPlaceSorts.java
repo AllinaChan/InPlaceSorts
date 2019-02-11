@@ -26,6 +26,8 @@ public class InPlaceSorts {
         return -1;
     }
 
+
+
     public static int binarySearch(int[] arr, int target)
     {
         int min=0;
@@ -80,6 +82,57 @@ public class InPlaceSorts {
             arr[num]=s;
         }
         return arr;
+    }
+    public static int partition2(int[] arr, int low, int high)
+    {
+
+        int endNum=arr[high];
+        int begNum=arr[low];
+        int middleIndex= (int)((low+high)/2);
+        int middle=arr[middleIndex];
+
+        if(middle < begNum)
+        {
+            swap(arr,low, middleIndex);
+        }
+        if(endNum < begNum)
+        {
+            swap(arr, low, high);
+        }
+        if(middle<endNum)
+        {
+            swap(arr, middleIndex,high);
+        }
+
+
+        int pivot = arr[high];
+
+
+        int i = (low - 1);
+
+        for (int j = low; j <= high- 1; j++)
+        {
+            // If current element is smaller
+            // than or equal to pivot
+            if (arr[j] <= pivot)
+            {
+                i++; // increment index of
+                // smaller element
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return (i + 1);
+    }
+
+    public static void quickSort2(int arr[], int low, int high)
+    {
+        if (low < high)
+        {
+            int pi = partition3(arr, low, high);
+            quickSort2(arr, low, pi-1);
+            quickSort2(arr, pi+1, high);
+        }
     }
 
 
@@ -245,6 +298,106 @@ public class InPlaceSorts {
             swap(arr, curPos, minPos);
         }
         return arr;
+    }
+
+    public static void insertionSort(int[] arr, int left, int right)
+    {
+        for (int i = left + 1; i <= right; i++)
+        {
+            int temp = arr[i];
+            int j = i - 1;
+            while (arr[j] > temp && j >= left)
+            {
+                arr[j+1] = arr[j];
+                j--;
+            }
+            arr[j+1] = temp;
+        }
+    }
+
+
+    public static void merge(int[] arr, int l, int m, int r)
+    {
+        // original array is broken in two parts
+        // left and right array
+        int len1 = m - l + 1, len2 = r - m;
+        int[] left = new int[len1];
+        int[] right = new int[len2];
+        for (int x = 0; x < len1; x++)
+            left[x] = arr[l + x];
+        for (int x = 0; x < len2; x++)
+            right[x] = arr[m + 1 + x];
+
+        int i = 0;
+        int j = 0;
+        int k = l;
+
+        // after comparing, we merge those two array
+        // in larger sub array
+        while (i < len1 && j < len2)
+        {
+            if (left[i] <= right[j])
+            {
+                arr[k] = left[i];
+                i++;
+            }
+            else
+            {
+                arr[k] = right[j];
+                j++;
+            }
+            k++;
+        }
+
+        // copy remaining elements of left, if any
+        while (i < len1)
+        {
+            arr[k] = left[i];
+            k++;
+            i++;
+        }
+
+        // copy remaining element of right, if any
+        while (j < len2)
+        {
+            arr[k] = right[j];
+            k++;
+            j++;
+        }
+    }
+
+
+
+    // iterative Timsort function to sort the
+    // array[0...n-1] (similar to merge sort)
+    public static void timSort(int[] arr, int n)
+    {
+        int RUN=32;
+        // Sort individual subarrays of size RUN
+        for (int i = 0; i < n; i+=RUN) {
+            insertionSort(arr, i, Math.min((i + 31), (n - 1)));
+        }
+
+        // start merging from size RUN (or 32). It will merge
+        // to form size 64, then 128, 256 and so on ....
+        for (int size = RUN; size < n; size = 2*size)
+        {
+            // pick starting point of left sub array. We
+            // are going to merge arr[left..left+size-1]
+            // and arr[left+size, left+2*size-1]
+            // After every merge, we increase left by 2*size
+            for (int left = 0; left < n; left += 2*size)
+            {
+                // find ending point of left sub array
+                // mid+1 is starting point of right sub array
+                int mid = left + size - 1;
+                int right = Math.min((left + 2*size - 1), (n-1));
+
+                // merge sub array arr[left.....mid] &
+                // arr[mid+1....right]
+                merge(arr, left, mid, right);
+            }
+        }
     }
 
     public static void insertionSort(int[] arr)
