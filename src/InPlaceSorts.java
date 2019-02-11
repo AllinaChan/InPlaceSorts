@@ -7,6 +7,24 @@ public class InPlaceSorts {
         arr[j]=temp;
         return arr;
     }
+    public static int binarySearch(String[] arr, int low, int high, String target, int arrayLength)
+    {
+        if(high >= low)
+        {
+            int mid = low + (high - low)/2;
+
+            if( ( mid == 0 || target.compareTo(arr[mid-1])>0) && arr[mid].equals(target)) {
+                return mid;
+            }
+            else if(target.compareTo(arr[mid])>0) {
+                return binarySearch(arr, (mid + 1), high, target, arrayLength);
+            }
+            else {
+                return binarySearch(arr, low, (mid - 1), target, arrayLength);
+            }
+        }
+        return -1;
+    }
 
     public static int binarySearch(int[] arr, int target)
     {
@@ -64,98 +82,6 @@ public class InPlaceSorts {
         return arr;
     }
 
-    public static int partition(int[] arr, int low, int high)
-    {
-        int pivot = arr[high];
-        int i = (low-1); // index of smaller element
-        for (int j=low; j<high; j++)
-        {
-            // If current element is smaller than or
-            // equal to pivot
-            if (arr[j] <= pivot)
-            {
-                i++;
-
-                // swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-
-        // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i+1];
-        arr[i+1] = arr[high];
-        arr[high] = temp;
-
-        return i+1;
-    }
-
-    public static void quickSort(int[] arr, int low, int high)
-    {
-
-
-        if (low < high)
-        {
-            int pi = partition(arr, low, high);
-
-            quickSort(arr, low, pi-1);
-            quickSort(arr, pi+1, high);
-        }
-    }
-    public static int partition2(int[] arr, int low, int high)
-    {
-        int endNum=arr[high];
-        int begNum=arr[low];
-        int middleIndex= (int)((low+high)/2);
-        int middle=arr[middleIndex];
-
-        if(begNum > middle)
-        {
-            swap(arr, low, middleIndex);
-        }
-        if(begNum>endNum)
-        {
-            swap(arr, low, high);
-        }
-        if(middle > endNum)
-        {
-            swap(arr, middleIndex,high);
-        }
-
-        int pivot = arr[high];
-        int i = (low-1); // index of smaller element
-        for (int j=low; j<high; j++)
-        {
-            // If current element is smaller than or
-            // equal to pivot
-            if (arr[j] <= pivot)
-            {
-                i++;
-
-                // swap arr[i] and arr[j]
-                swap(arr, i, j);
-            }
-        }
-
-        // swap arr[i+1] and arr[high] (or pivot)
-        int temp = arr[i+1];
-        arr[i+1] = arr[high];
-        arr[high] = temp;
-
-        return i+1;
-    }
-
-    public static void quickSort2(int arr[], int low, int high)
-    {
-        if (low < high)
-        {
-            int pi = partition2(arr, low, high);
-
-            quickSort2(arr, low, pi-1);
-            quickSort2(arr, pi+1, high);
-        }
-    }
 
     public static int partition3(int[] arr, int low, int high)
     {
@@ -217,6 +143,64 @@ public class InPlaceSorts {
         }
     }
 
+    public static int stringPartition(String[] arr, int low, int high)
+    {
+
+        String endNum=arr[high];
+        String begNum=arr[low];
+        int middleIndex= (int)((low+high)/2);
+        String middle=arr[middleIndex];
+
+        if(middle.compareTo(endNum)<0)
+        {
+            swap(arr, high, middleIndex);
+        }
+        if(begNum.compareTo(endNum)<0)
+        {
+            swap(arr, low, high);
+        }
+        if(middle.compareTo(begNum)<0)
+        {
+            swap(arr, middleIndex,low);
+        }
+
+        String pivot = arr[low];
+
+
+        int i = (low-1);
+        int j= (high+1);
+
+        while(true)
+        {
+            do {
+                i++;
+            }
+            while(arr[i].compareTo(pivot)<0);
+
+
+            do{
+                j--;
+            }
+            while(arr[j].compareTo(pivot)>0);
+
+
+            if(i>=j)
+            {
+                return j;
+            }
+            swap(arr, i,j);
+        }
+    }
+
+    public static void quickSortString(String[] arr, int low, int high)
+    {
+        if (low < high)
+        {
+            int pi = stringPartition(arr, low, high);
+            quickSortString(arr, low, pi);
+            quickSortString(arr, pi+1, high);
+        }
+    }
 
 
 
@@ -483,14 +467,14 @@ public class InPlaceSorts {
     public static int[] MakeintoOne(int[][] arr){
         int [] medians= new int[arr.length];
         for(int i=0;i<arr.length;i++){
-            medians[i]=FindMedian(arr[i]);
+            medians[i]=FindMedian(arr[i], arr.length);
         }
         return medians;
     }
 
-    public static int FindMedian(int[] arr){
-            if(arr.length%2==0){
-                return (arr[arr.length/2]+arr[(arr.length/2)-1])/2;
+    public static int FindMedian(int[] arr, int length){
+            if(length%2==0){
+                return (arr[length/2]+arr[(length/2)-1])/2;
             } else {
                 return arr[arr.length/2];
             }
